@@ -1,21 +1,24 @@
 const fs = require('fs');
-const userPrompt = require('./utils/inquirer.js');
 const axios = require('axios');
+const userPrompt = require('./utils/inquirer.js');
 const { markdown } = require('./utils/markdown.js');
+const { license } = require('./utils/license.js');
 const { token } = require('./utils/config.json') || process.env; 
-const moment = require('moment');
 
 async function getGitHubInfo() {
     try {
-        const newInfo = await userPrompt.userInfo;
-        const res = await axios({
+        const newInfo = await userPrompt.response;
+        const github = await axios({
             headers: { 'Authorization': `token ${token}`},
-            url: `https://api.github.com/users/${newInfo.username}?access_token=${token}`,
+            url: `https://api.github.com/users/moojigc`,
             method: 'get',
-        })
-        console.log(res.data);
-        const year = moment().format('YYYY');
-        fs.writeFile('README.md', markdown(newInfo, res.data, year), function(err) {
+        });
+        console.log(newInfo);
+        console.log(github.data);
+
+        const userLicense = license(newInfo.license, github.data.name);
+
+        fs.writeFile('README.md', markdown(newInfo, github.data, userLicense), function(err) {
             if (err) throw err;
             else console.log('Success!');
         });

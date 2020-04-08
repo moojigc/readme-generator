@@ -21,11 +21,21 @@ async function inquirerPrompt() {
         {
             message: "How do you use it?",
             name: "usage"
+        },
+        {
+            type: "list",
+            message: "What type of license do you want to apply?",
+            name: "license",
+            choices: [
+                "MIT: Allow others to distribute open and closed source versions.",
+                "GNU GPLv3: Only allow others to distribute open source versions.",
+                "ISC: Functionally equivalent to MIT license."
+            ]
         }
     ])
     return res;
 }
 
 module.exports = {
-    userInfo: inquirerPrompt()
+    response: inquirerPrompt()
 }
