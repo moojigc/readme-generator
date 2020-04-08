@@ -1,17 +1,21 @@
+const markdown = function(inquirerInfo, GitHubInfo, currentYear) {
+    const { title, description, installation, usage } = inquirerInfo;
+    const { name, avatar_url, blog, email } = GitHubInfo;
 
-# 
+    return `
+# ${title}
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://www.contributor-covenant.org/version/2/0/code_of_conduct/) 
 
-Developed by Moojig Battsogt. 
+Developed by ${name}. 
 
 
-<img src='https://avatars1.githubusercontent.com/u/57543294?v=4' style='width: 100px'>
+<img src='${avatar_url}' style='width: 100px'>
 
-Contact at moojig@nyu.edu.
+Contact at ${email}.
 
 ## Description 
 
-
+${description}
 
 ## Table of Contents
 
@@ -23,18 +27,18 @@ Contact at moojig@nyu.edu.
 
 ## Installation
 
-
+${installation}
 
 ## Usage 
 
-
+${usage}
 
 
 ## License
 
 MIT License
 
-Copyright (c) 2020 Moojig Battsogt
+Copyright (c) ${currentYear} ${name}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -53,4 +57,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-    
+    `
+
+}
+
+module.exports = {
+    markdown: markdown
+}
