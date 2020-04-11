@@ -10,7 +10,7 @@ Contact at moojig@nyu.edu.
 
 ## Description 
 
-Generates a read me based on your GitHub username and answers to questions through the use of the NodeJS package inquirer.
+Generates a readme.md based on your GitHub profile and answers to questions through the use of the NodeJS package 'inquirer'
 
 ## Table of Contents
 
@@ -22,11 +22,22 @@ Generates a read me based on your GitHub username and answers to questions throu
 
 ## Installation
 
-'git clone' this repo.
+Git clone this repo.
+
 
 ## Usage 
 
-Before you can run it in the terminal, you must create a 'config.json' file with your GitHub personal token.
+Before you run it in the terminal, you must create a 'config.json' file with your GitHub personal access token. It goes in the utils/ folder.
+
+
+## Tests
+
+None.
+
+
+## Questions
+
+Q: Why do I need a config.json file? A: To hide your personal token from the public repo.
 
 
 ## License

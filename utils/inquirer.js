@@ -31,6 +31,14 @@ async function inquirerPrompt() {
                 "GNU GPLv3: Only allow others to distribute open source versions.",
                 "ISC: Functionally equivalent to MIT license."
             ]
+        },
+        {
+            message: "What tests can you run on this?",
+            name: "tests"
+        },
+        {
+            message: "What are some questions the user may have when running your program?",
+            name: "questions"
         }
     ])
     return res;

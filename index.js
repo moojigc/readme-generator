@@ -10,7 +10,7 @@ async function getGitHubInfo() {
         const newInfo = await userPrompt.response;
         const github = await axios({
             headers: { 'Authorization': `token ${token}`},
-            url: `https://api.github.com/users/moojigc`,
+            url: `https://api.github.com/users/${newInfo.username}`,
             method: 'get',
         });
         console.log(newInfo);

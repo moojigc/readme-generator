@@ -1,5 +1,5 @@
 const markdown = function(inquirerInfo, GitHubInfo, license) {
-    const { title, description, installation, usage } = inquirerInfo;
+    const { title, description, installation, usage, tests, questions } = inquirerInfo;
     const { name, avatar_url, email } = GitHubInfo;
 
     return `
@@ -28,9 +28,20 @@ ${description}
 
 ${installation}
 
+
 ## Usage 
 
 ${usage}
+
+
+## Tests
+
+${tests}
+
+
+## Questions
+
+${questions}
 
 
 ## License
